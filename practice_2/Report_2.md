@@ -1,4 +1,4 @@
-# Report 
+# Practice 2. Synthetic Document Generator (SNILS & INN)
 SNILS:
 | Field | X | Y |
 | -------- | -------- | -------- |
