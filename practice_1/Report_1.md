@@ -1,4 +1,4 @@
-# Synthetic Club Membership Card Generator
+# Practice 1. Synthetic Conference Badge Generator
 
 Name: Krapp Denis Vladimirovich
 
