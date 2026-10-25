@@ -73,7 +73,7 @@ I used seed number 6 as my student ID according to the table (maybe I misunderst
 - Fixed pixel spacing for the 12 digits caused drift across boxes on templates of different resolutions. Switching to proportional step sizes (int(w * 0.0275)) resolved the misalignment.
 - Long city and district names exceeded the printable width on the forms.
 
-## 8. What should be improved
+## 7. What should be improved
 - Add text wrapping or dynamic font scaling for long place-of-birth and patronymic strings.
 - Add synthetic scan distortions (slight rotation, noise, perspective skew, and paper texture) to improve realism for OCR training.
 - Bundle an open-source Cyrillic TTF font file directly in the repository so font loading does not depend on the host operating system.
