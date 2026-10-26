@@ -12,7 +12,7 @@ OUTPUT_DIR = Path("data/demo_quality_dataset")
 
 SEED = 2026
 
-TARGET_PER_CLASS = 100
+TARGET_PER_CLASS = 300
 
 VARIANTS_PER_SOURCE = 1
 
