@@ -1,0 +1,112 @@
+{
+  "experiment": "task5a_resnet18_finetune_top30",
+  "week": 9,
+  "model": "ResNet18",
+  "regime": "finetune_top30",
+  "lr": 1e-05,
+  "unfrozen_layers": 30,
+  "input_size": [
+    224,
+    224,
+    3
+  ],
+  "seed": 245000004,
+  "device": "cpu",
+  "epochs_planned": 50,
+  "epochs_run": 12,
+  "best_epoch": 7,
+  "train_time_s": 495.52,
+  "latency_ms_per_image": 19.231,
+  "model_size_mb": 42.96,
+  "params": 11242305,
+  "test_samples": 258,
+  "train_val_gap_at_best": -0.001,
+  "metrics": {
+    "accuracy": 1.0,
+    "f1_macro": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "per_class": {
+      "bad": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 129
+      },
+      "good": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 129
+      }
+    }
+  },
+  "confusion_matrix": [
+    [
+      129,
+      0
+    ],
+    [
+      0,
+      129
+    ]
+  ],
+  "history": {
+    "train_loss": [
+      0.05227,
+      0.02852,
+      0.05577,
+      0.01519,
+      0.02702,
+      0.01994,
+      0.01352,
+      0.01503,
+      0.01119,
+      0.0082,
+      0.01212,
+      0.00781
+    ],
+    "val_loss": [
+      0.01539,
+      0.01298,
+      0.01086,
+      0.01843,
+      0.01114,
+      0.00763,
+      0.00588,
+      0.01491,
+      0.00783,
+      0.01011,
+      0.01249,
+      0.00773
+    ],
+    "train_acc": [
+      0.97799,
+      0.99135,
+      0.98192,
+      0.99607,
+      0.98821,
+      0.99371,
+      0.99528,
+      0.99607,
+      0.99843,
+      0.99764,
+      0.99528,
+      0.99764
+    ],
+    "val_acc": [
+      0.9963,
+      0.9963,
+      0.9963,
+      0.99259,
+      0.9963,
+      1.0,
+      0.9963,
+      0.9963,
+      0.99259,
+      0.99259,
+      0.99259,
+      0.9963
+    ]
+  }
+}

@@ -10,3 +10,5 @@ opencv-python-headless
 matplotlib
 pyyaml
 tqdm
+onnxruntime
+onnx
