@@ -14,6 +14,6 @@ While MobileNetV3-Large achieved a strong test accuracy of 0.9961 under frozen l
 
 In contrast, YOLOv8n-cls trained end-to-end at native 640×640 resolution converged via early stopping at epoch 1 and achieved 1.0000 test accuracy and 1.0000 Macro F1 (0 errors across all 258 test images), while cutting CPU latency by 6.78× down to 18.862 ms/image.
 
-Comparing the two YOLO variants directly reveals the impact of model capacity on a 1,272-image training split: YOLOv8s-cls (5,083,298 parameters) peaked on validation at epoch 1 and triggered early stopping at epoch 6 (`patience=5`), resulting in premature convergence and 16 false negatives on defective documents (`bad` recall = 0.8760, accuracy = 0.9380) at more than double the latency (44.512 ms/image).
+Comparing the two YOLO variants directly reveals the impact of model capacity on a 1,272-image training split: YOLOv8s-cls (5,083,298 parameters) peaked on validation at epoch 1 and triggered early stopping at epoch 6 (patience=5), resulting in premature convergence and 16 false negatives on defective documents (bad recall = 0.8760, accuracy = 0.9380) at more than double the latency (44.512 ms/image).
 
 Architecturally, YOLOv8n-cls's lightweight C2f backbone (1,440,850 parameters, 2.83 MB) acts as a natural regularizer at 640×640 resolution, capturing fine text-edge degradation without overfitting or incurring memory latency penalties, making it the clear production gatekeeper for the Telegram Bot ingestion pipeline.
