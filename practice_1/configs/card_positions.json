@@ -1,0 +1,8 @@
+{
+  "tier_badge_y": 485,
+  "attendee_name_y": 550,
+  "organization": [65, 645],
+  "track": [65, 725],
+  "badge_id": [65, 805],
+  "qr_box": [485, 630, 595, 740]
+}

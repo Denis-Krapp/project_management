@@ -1,0 +1,50 @@
+{
+  "experiment": "task3_yolov8n_cls",
+  "week": 7,
+  "model": "yolov8n-cls",
+  "regime": "fine_tuning",
+  "input_size": [
+    640,
+    640,
+    3
+  ],
+  "seed": 245000004,
+  "device": "cpu",
+  "epochs_planned": 50,
+  "epochs_run": 15,
+  "train_time_s": 2244.45,
+  "latency_ms_per_image": 18.862,
+  "model_size_mb": 2.83,
+  "params": 1440850,
+  "test_samples": 258,
+  "metrics": {
+    "accuracy": 1.0,
+    "f1_macro": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "per_class": {
+      "bad": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 129
+      },
+      "good": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 129
+      }
+    }
+  },
+  "confusion_matrix": [
+    [
+      129,
+      0
+    ],
+    [
+      0,
+      129
+    ]
+  ]
+}
