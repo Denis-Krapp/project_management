@@ -1,3 +1,4 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch
 torchvision
 tensorflow
@@ -12,3 +13,5 @@ pyyaml
 tqdm
 onnxruntime
 onnx
+python-telegram-bot
+pytest

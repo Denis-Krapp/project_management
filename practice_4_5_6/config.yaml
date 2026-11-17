@@ -1,0 +1,8 @@
+models:
+  quality_gate: "results/week7_yolov8n_cls/weights/best.onnx"
+  document_type: null
+versions:
+  quality_gate: "yolov8n-cls-onnx-v1.0"
+  document_type: "none"
+thresholds:
+  quality_reject_p_bad: 0.25
