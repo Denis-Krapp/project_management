@@ -9,6 +9,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 from pipeline import DocumentPipeline
 
 logging.basicConfig(level=logging.INFO)
+logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 pipe = DocumentPipeline("config.yaml")
@@ -53,7 +54,7 @@ async def on_photo(update, context):
     if result["status"] == "accepted":
         text = (f"✅ ACCEPTED\n"
                 f"Quality: {result['quality']} ({result['quality_confidence']:.1%})\n"
-                f"Document: {result['document_type']} (Next Semester)\n"
+                f"Document: {result['document_type']}\n"
                 f"Latency: {result['latency_ms']} ms")
     elif result["status"] == "rejected":
         text = (f"❌ REJECTED: {result['reason']}\n"

@@ -1,10 +1,17 @@
 import json
-import pytest
 import shutil
+import sys
 import tempfile
 from pathlib import Path
+from unittest.mock import MagicMock, patch
+
+import pytest
 from PIL import Image
-from unittest.mock import patch, MagicMock
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 from pipeline import DocumentPipeline
 
 

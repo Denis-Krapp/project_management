@@ -1,8 +1,11 @@
+import os
+os.environ["YOLO_AUTOINSTALL"] = "False"
+
 import time
 import yaml
 from pathlib import Path
 from datetime import datetime, timezone
-from PIL import Image, UnidentifiedImageError
+from PIL import Image
 from ultralytics import YOLO
 
 
@@ -11,7 +14,7 @@ class DocumentPipeline:
         self.base_dir = Path(__file__).parent
         with open(self.base_dir / config_path, "r", encoding="utf-8") as f:
             self.config = yaml.safe_load(f)
-            
+
         self.threshold = float(self.config["thresholds"]["quality_reject_p_bad"])
         self.q_version = self.config["versions"]["quality_gate"]
         self.d_version = self.config["versions"]["document_type"]
@@ -19,14 +22,14 @@ class DocumentPipeline:
         q_model_path = self.base_dir / self.config["models"]["quality_gate"]
         if not q_model_path.exists():
             raise FileNotFoundError(f"Model missing at {q_model_path}")
-        
+
         self.quality_model = YOLO(str(q_model_path), task="classify")
 
     def run(self, image_path):
         start_t = time.perf_counter()
         img_path_obj = Path(image_path)
         timestamp = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
-        
+
         result = {
             "file": img_path_obj.name,
             "status": "error",
@@ -37,7 +40,7 @@ class DocumentPipeline:
             "reason": "null",
             "model_versions": {"quality": self.q_version, "doctype": self.d_version},
             "latency_ms": 0,
-            "timestamp": timestamp
+            "timestamp": timestamp,
         }
 
         try:
@@ -48,18 +51,18 @@ class DocumentPipeline:
                 raise ValueError("Not a JPG/PNG file.")
 
             try:
-                img = Image.open(img_path_obj)
-                img.verify()
-            except (UnidentifiedImageError, SyntaxError):
+                with Image.open(img_path_obj) as img:
+                    img.verify()
+            except Exception:
                 result["reason"] = "unsupported_file"
-                raise ValueError("Corrupted image file.")
+                raise ValueError("Corrupted or unreadable image file.")
 
-            inference_start = time.perf_counter()
             pred = self.quality_model(str(img_path_obj), imgsz=640, verbose=False)[0]
-            
-            p_bad = float(pred.probs.data[0].item())
-            p_good = float(pred.probs.data[1].item())
-            
+
+            probs = pred.probs.data
+            p_bad = float(probs[0].item() if hasattr(probs[0], "item") else probs[0])
+            p_good = float(probs[1].item() if hasattr(probs[1], "item") else probs[1])
+
             if p_bad >= self.threshold:
                 result["status"] = "rejected"
                 result["quality"] = "bad"
@@ -69,7 +72,7 @@ class DocumentPipeline:
                 result["status"] = "accepted"
                 result["quality"] = "good"
                 result["quality_confidence"] = round(p_good, 4)
-                result["document_type"] = "null" 
+                result["document_type"] = "null"
                 result["document_type_confidence"] = 0.0
 
         except Exception as e:
