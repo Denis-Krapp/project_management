@@ -1,0 +1,167 @@
+[
+  {
+    "file": "good_inn_008_v1.jpg",
+    "status": "accepted",
+    "quality": "good",
+    "quality_confidence": 1.0,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "null",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 1744,
+    "timestamp": "2026-11-20T18:26:36.714685Z"
+  },
+  {
+    "file": "good_inn_009_v1.jpg",
+    "status": "accepted",
+    "quality": "good",
+    "quality_confidence": 0.8268,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "null",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 35,
+    "timestamp": "2026-11-20T18:26:38.464102Z"
+  },
+  {
+    "file": "good_inn_012_v1.jpg",
+    "status": "accepted",
+    "quality": "good",
+    "quality_confidence": 0.7773,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "null",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 24,
+    "timestamp": "2026-11-20T18:26:38.499928Z"
+  },
+  {
+    "file": "good_inn_017_v1.jpg",
+    "status": "accepted",
+    "quality": "good",
+    "quality_confidence": 0.9869,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "null",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 23,
+    "timestamp": "2026-11-20T18:26:38.523916Z"
+  },
+  {
+    "file": "good_inn_019_v1.jpg",
+    "status": "accepted",
+    "quality": "good",
+    "quality_confidence": 0.7999,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "null",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 24,
+    "timestamp": "2026-11-20T18:26:38.548253Z"
+  },
+  {
+    "file": "bad_inn_blur_021_v1.jpg",
+    "status": "rejected",
+    "quality": "bad",
+    "quality_confidence": 1.0,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "poor_quality",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 20,
+    "timestamp": "2026-11-20T18:26:38.572417Z"
+  },
+  {
+    "file": "bad_inn_blur_076_v1.jpg",
+    "status": "rejected",
+    "quality": "bad",
+    "quality_confidence": 0.9999,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "poor_quality",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 23,
+    "timestamp": "2026-11-20T18:26:38.592946Z"
+  },
+  {
+    "file": "bad_inn_blur_121_v1.jpg",
+    "status": "rejected",
+    "quality": "bad",
+    "quality_confidence": 1.0,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "poor_quality",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 23,
+    "timestamp": "2026-11-20T18:26:38.616918Z"
+  },
+  {
+    "file": "bad_inn_blur_196_v1.jpg",
+    "status": "rejected",
+    "quality": "bad",
+    "quality_confidence": 1.0,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "poor_quality",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 22,
+    "timestamp": "2026-11-20T18:26:38.639804Z"
+  },
+  {
+    "file": "bad_inn_blur_206_v1.jpg",
+    "status": "rejected",
+    "quality": "bad",
+    "quality_confidence": 1.0,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "poor_quality",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 23,
+    "timestamp": "2026-11-20T18:26:38.662723Z"
+  },
+  {
+    "file": "invalid_sample.txt",
+    "status": "error",
+    "quality": "null",
+    "quality_confidence": 0.0,
+    "document_type": "null",
+    "document_type_confidence": 0.0,
+    "reason": "unsupported_file",
+    "model_versions": {
+      "quality": "yolov8n-cls-onnx-v1.0",
+      "doctype": "none"
+    },
+    "latency_ms": 0,
+    "timestamp": "2026-11-20T18:26:38.685987Z"
+  }
+]

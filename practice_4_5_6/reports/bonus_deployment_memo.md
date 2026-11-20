@@ -1,7 +1,7 @@
 # Task 5D: Deployment Export & Edge Benchmark Memo
 
-- Base model: YOLOv8n-cls (results/week7_yolov8n_cls/weights/best.pt, 1,440,850 parameters, input 1x3x640x640)
-- Exported srtifacts: results/week7_yolov8n_cls/weights/best.onnx (FP32) and results/week7_yolov8n_cls/weights/best_int8.onnx (Dynamic QUInt8)
+- Base model: YOLOv8n-cls (`results/week7_yolov8n_cls/weights/best.pt`, 1,440,850 parameters, input 1x3x640x640)
+- Exported srtifacts: `results/week7_yolov8n_cls/weights/best.onnx` (FP32) and `results/week7_yolov8n_cls/weights/best_int8.onnx` (Dynamic QUInt8)
 - Benchmark protocol: CPU (AMD Ryzen 5 5600, 4 intra-op threads), 20 warm-up + 100 timed single-image inferences, evaluated on full held-out test split (N = 258)
 
 
@@ -28,9 +28,9 @@
 
 ### 3. Deployment recommendation (server vs. edge)
 
-1. Production CPU server (Telegram bot backend) - deploy ONNX FP32 (best.onnx):  
+1. Production CPU server (Telegram bot backend) - deploy ONNX FP32 (`best.onnx`):  
    At 11.004 ms/image and 1.0000 test accuracy (0.0000 drop), ONNX FP32 delivers the lowest CPU latency (~90.9 images/sec per worker) and zero quantization noise, while its 5.51 MB footprint is negligible in server RAM.
-2. Mobile / edge client (on-device pre-upload gate) - deploy ONNX INT8 (best_int8.onnx):  
+2. Mobile / edge client (on-device pre-upload gate) - deploy ONNX INT8 (`best_int8.onnx`):  
    At 1.44 MB and 0.9961 test accuracy (only 1 borderline misclassification out of 258 images, 0.39% drop), ONNX INT8 minimizes mobile app bundle size and cellular download bandwidth while still clearing the < 52 ms interactive camera frame budget (19.905 ms).
 
 

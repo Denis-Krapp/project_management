@@ -30,13 +30,13 @@ YOLOv8n-cls is selected as the production quality gatekeeper for the Telegram bo
 * Specular glare weakness:  
   Error analysis across the defect taxonomy (blur, glare, skew, occlusion, exposure) confirms that glare is the hardest defect overall because localized flash reflections over low-text margins resemble clean white paper.
 * Mitigation plan:  
-  1) Upgrade apply_glare from uniform ellipses to multi-layer radial Gaussian alpha gradients with local contrast washout anchored directly over high-density text regions (passport numbers, dates, stamps).
+  1) Upgrade `apply_glare` from uniform ellipses to multi-layer radial Gaussian alpha gradients with local contrast washout anchored directly over high-density text regions (passport numbers, dates, stamps).
   2) Lower the rejection cutoff from P(bad) >= 0.50 to P(bad) >= 0.40 in production so borderline glare frames are rejected before consuming expensive OCR compute.
   3) Route uncertain predictions (0.35 <= P(bad) < 0.65) and user-disputed rejections into an asynchronous operator review queue to harvest real-world failure cases for quarterly fine-tuning.
 
 
 ### 5. Deployment note
 * Current deployment:  
-  Deploy results/week7_yolov8n_cls/weights/best.pt inside the Telegram bot backend container on CPU. At 18.862 ms/image, a single worker processes ~53 images/sec and blocks degraded or non-document uploads before invoking downstream PaddleOCR.
+  Deploy `results/week7_yolov8n_cls/weights/best.pt` inside the Telegram bot backend container on CPU. At 18.862 ms/image, a single worker processes ~53 images/sec and blocks degraded or non-document uploads before invoking downstream PaddleOCR.
 * Future deployment:  
-  Because YOLOv8n-cls is only 2.83 MB, it can be exported via Ultralytics (model.export(format="onnx", simplify=True) or format="tflite", int8=True) to run directly on mobile clients or edge gateways (<1.5 MB quantized), providing instant on-device camera quality feedback prior to cellular upload.
+  Because YOLOv8n-cls is only 2.83 MB, it can be exported via Ultralytics (`model.export(format="onnx", simplify=True) or format="tflite", int8=True`) to run directly on mobile clients or edge gateways (<1.5 MB quantized), providing instant on-device camera quality feedback prior to cellular upload.

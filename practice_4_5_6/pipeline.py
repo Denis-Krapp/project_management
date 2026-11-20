@@ -82,4 +82,5 @@ class DocumentPipeline:
 
         finally:
             result["latency_ms"] = int((time.perf_counter() - start_t) * 1000)
-            return result
+
+        return result
